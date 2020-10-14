@@ -1,16 +1,11 @@
 import React from 'react';
 import './App.css';
-import TimedMission from './components/mission_timed';
-import ControlPointMission from "./components/mission_control_point";
-
+import MainGameTimer from "./components/mainGameTimer";
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Choose Your Mission
-        </p>
-        <TimedMission/>
+        <MainGameTimer/>
       </header>
     </div>
   );
