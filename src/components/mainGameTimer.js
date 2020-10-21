@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
+import {formattedTimer} from "../utility/helpers";
 
 const incomingPropTime = {
     hours: 0,
@@ -75,14 +76,9 @@ const MainGameTimer = () => {
         setStatus(status => (status === "running" ? "idle" : "running"));
     };
 
-    const formatedTimer = (time) => {
-        const {hours, minutes, seconds} = time;
-        return `${("0" + hours).slice(-2)}:${("0" + minutes).slice(-2)}:${("0" + seconds).slice(-2)}`
-    }
-
     return (
         <div>
-            <h1>{formatedTimer(timeRemaining)}</h1>
+            <h1>{formattedTimer(timeRemaining)}</h1>
             <br />
             <button onClick={toggle}>
                 {status === "running" ? "Stop" : "Start"}
