@@ -2,8 +2,8 @@
 
 ### To-Do List
 
--[ ] Interval time remaining countdown announcements
--[ ] After Main Countdown Timer hits 00:00:00, need to stop React from updating state.
+* Interval time remaining countdown announcements  
+* After Main Countdown Timer hits 00:00:00, need to stop React from updating state.  
 
 ---
 
