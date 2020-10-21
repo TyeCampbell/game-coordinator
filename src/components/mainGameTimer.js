@@ -3,8 +3,8 @@ import {formattedTimer} from "../utility/helpers";
 
 const incomingPropTime = {
     hours: 0,
-    minutes: 0,
-    seconds: 10
+    minutes: 2,
+    seconds: 0
 }
 
 const useInterval = (callback, delay) => {

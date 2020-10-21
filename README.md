@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Game Coordinator
+
+### To-Do List
+
+-[ ] Interval time remaining countdown announcements
+-[ ] After Main Countdown Timer hits 00:00:00, need to stop React from updating state.
+
+---
 
 ## Available Scripts
 
