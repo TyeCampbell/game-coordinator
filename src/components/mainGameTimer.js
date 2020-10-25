@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {formattedTimer} from "../utility/helpers";
+import {gameTimeCountdownAnnouncement} from '../utility/soundHandlers';
 
 const incomingPropTime = {
     hours: 0,
@@ -36,6 +37,8 @@ const MainGameTimer = () => {
         () => {
             setTimeRemaining(timeRemaining => {
                 const {hours, minutes, seconds} = timeRemaining;
+
+                gameTimeCountdownAnnouncement(hours, minutes, seconds);
 
                 if (hours > 0 && minutes === 0 && seconds === 0) {
                     return {
