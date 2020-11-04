@@ -4,7 +4,7 @@ import {gameTimeCountdownAnnouncement} from '../utility/soundHandlers';
 
 const incomingPropTime = {
     hours: 0,
-    minutes: 2,
+    minutes: 1,
     seconds: 0
 }
 
@@ -33,12 +33,20 @@ const MainGameTimer = () => {
     const [status, setStatus] = useState("idle");
     const [timeRemaining, setTimeRemaining] = useState(incomingPropTime);
 
+    const playAudio = () => {
+        const audioEl = document.getElementsByClassName("audio-element")[0]
+        audioEl.play();
+        console.log('audioEl', audioEl);
+    }
+
     useInterval(
         () => {
             setTimeRemaining(timeRemaining => {
                 const {hours, minutes, seconds} = timeRemaining;
 
-                gameTimeCountdownAnnouncement(hours, minutes, seconds);
+                if (gameTimeCountdownAnnouncement(hours, minutes, seconds)) {
+                    playAudio();
+                }
 
                 if (hours > 0 && minutes === 0 && seconds === 0) {
                     return {
@@ -64,6 +72,7 @@ const MainGameTimer = () => {
                     }
                 }
 
+                setStatus('idle');
                 return {
                     hours: 0,
                     minutes: 0,
@@ -83,6 +92,9 @@ const MainGameTimer = () => {
         <div>
             <h1>{formattedTimer(timeRemaining)}</h1>
             <br />
+            <audio className="audio-element">
+                <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"/>
+            </audio>
             <button onClick={toggle}>
                 {status === "running" ? "Stop" : "Start"}
             </button>
